@@ -14,9 +14,11 @@ extrapolate beyond the available magnitude range.
 
 ```python
 from cosmos_extrapolation import sersic_model
-model = sersic_model()
-model.fit(mag_range=[22., 23.5])
-I, R, n, q = model.sample(mag)
+model = sersic_model()           # Loads necessary COSMOS data
+model.fit(mag_range=[22., 23.5]) # Fits the model in the specified range
+mag = model.cat['mag_auto']      # Retrieving magnitudes from the COSMOS catalog
+I, R, n, q = model.sample(mag)   # Sample intensity, half-light radius, sersic index,
+                                 # axis ratio for input magnitude
 ```
 
 See [demo](./demo.ipynb) for more details
